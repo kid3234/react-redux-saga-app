@@ -1,19 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-import { addtocart } from './redux/action';
-import {useDispatch} from 'react-redux'
-
+import Header from './components/Header';
+import Main from './components/Main';
+import { Routes, Route } from 'react-router-dom';
+import Cart from './components/cart';
 function App() {
-  const dispatch = useDispatch();
-  const product ={
-    name:'iphone',
-    catagory:'mobile',
-    Price:100,
-    color:'red'
-  }
   return (
     <div className="App">
-     <button onClick={()=> dispatch(addtocart(product))}>Add to cart</button>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Main />} />
+        <Route path='/cart' element={<Cart />} />
+      </Routes>
     </div>
   );
 }
